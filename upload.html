@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>嬌生陪寶貝探索世界，分享幸福第一次</title>
+    <link rel="stylesheet" href="public/css/main.css">
+    <link rel="stylesheet" href="public/css/mobile-main.css">
+</head>
+
+<body>
+    <!-- 選單 -->
+    <div class="navbar">
+        <div class="event_menu dropdown">
+            <a href="http://www.johnsonsbaby.com.tw/" target="_blank" class="event_menu00"><img src="public/img/logo.png" alt="嬌生"></a>
+            <a id="dLabel" class="mobile-menu" data-target="#" href="#" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"></a>
+            <div class="dropdown-menu section-menu" aria-labelledby="dLabel">
+                <a title="影片上傳" href="upload.html" target="_self" class="event_menu01_active"></a>
+                <a title="產品介紹" href="product.html" target="_self" class="event_menu02"></a>
+                <a title="我要投票" href="vote.html" target="_self" class="event_menu03"></a>
+                <a title="活動辦法" href="event.html" target="_self" class="event_menu04"></a>
+                <a title="得獎名單" href="namelist.html" target="_self" class="event_menu05"></a>
+            </div>
+        </div>
+    </div>
+    <!-- 內容 -->
+    <div class="container">
+        <a href="#" class="btn_fb"><img src="public/img/btn_fb.png" alt="FB分享"></a>
+        <!-- 刊頭 -->
+        <div class="header">
+            <h1><img src="public/img/header.png" alt="嬌生陪寶貝探索世界，分享幸福第一次"></h1>
+            <h2 class="h2_upload"><img src="public/img/h2_upload.png" alt="影片上傳"></h2>
+        </div>
+        <!-- 詳細內容 -->
+        <div class="upload">
+            <h3><img src="public/img/h3_upload.png" alt="請填寫正確個人資料，以利後續得獎聯絡"></h3>
+            <div class="option">
+                <h4><img src="public/img/h4_upload_01.png" alt="家長姓名"></h4>
+                <input type="text" placeholder="請填寫中文姓名" />
+            </div>
+            <div class="option">
+                <h4><img src="public/img/h4_upload_02.png" alt="手機"></h4>
+                <input type="text" placeholder="範例：0912345678" />
+            </div>
+            <div class="option">
+                <h4><img src="public/img/h4_upload_03.png" alt="寶貝暱稱"></h4>
+                <input type="text" />
+            </div>
+            <div class="option">
+                <h4><img src="public/img/h4_upload_04.png" alt="請填入影音網址(Youtube/Facebook)"></h4>
+                <input type="text" />
+            </div>
+            <div class="option">
+                <h4><img src="public/img/h4_upload_05.png" alt="影音預覽"></h4>
+            </div>
+            <div class="film_preview">
+                <iframe src="https://www.youtube.com/embed/BPXk8Qx2hIg?rel=0&amp;showinfo=0" frameborder="0" allowfullscreen></iframe>
+            </div>
+            <a href="#" data-toggle="modal" data-target="#lightbox_complete"><img src="public/img/btn_send.png" alt="送出"></a>
+            <a href="event.html" class="link_qa">活動Q&A</a>
+        </div>
+    </div>
+    <!-- 頁尾 -->
+    <footer>本活動網站建議使用Safari或Chrome、IE9以上之瀏覽器版本，若無法開啟請更新您的瀏覽器版本，以達最佳瀏覽體驗。</footer>
+    <!-- 完成 -->
+    <div class="modal fade" id="lightbox_complete" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true"><img src="public/img/btn_close.png"></span></button>
+                </div>
+                <div class="modal-body lightbox_fillin">
+                    <img src="public/img/img_upload_complete.png" alt="感謝您的參與">
+                    <div class="modal-footer">
+                        <a href="film.html"><img src="public/img/btn_govote.png" alt="我要投票"></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="public/js/jquery.min.js"></script>
+    <script src="public/js/affix.js"></script>
+    <script src="public/js/dropdown.js"></script>
+</body>
+
+</html>

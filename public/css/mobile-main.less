@@ -1,0 +1,665 @@
+// The dropdown wrapper (div)
+.clearfix() {
+    &:before,
+    &:after {
+        content: " "; // 1
+        display: table; // 2
+    }
+    &:after {
+        clear: both;
+    }
+}
+
+.dropup,
+.dropdown {
+    position: relative;
+}
+
+// Prevent the focus on the dropdown toggle when closing dropdowns
+.dropdown-toggle:focus {
+    outline: 0;
+}
+
+// Hover/Focus state
+.dropdown-menu > li > a {
+    &:hover,
+    &:focus {
+        text-decoration: none;
+        /*color: @dropdown-link-hover-color;
+        background-color: @dropdown-link-hover-bg;*/
+    }
+}
+
+// Active state
+.dropdown-menu > .active > a {
+    &,
+    &:hover,
+    &:focus {
+        /*color: @dropdown-link-active-color;
+        background-color: @dropdown-link-active-bg;*/
+        text-decoration: none;
+        outline: 0;
+    }
+}
+
+// Open state for the dropdown
+.open {
+    // Show the menu
+    > .dropdown-menu {
+        display: block;
+    }
+    // Remove the outline when :focus is triggered
+    > a {
+        outline: 0;
+    }
+}
+
+// Menu positioning
+//
+// Add extra class to `.dropdown-menu` to flip the alignment of the dropdown
+// menu with the parent.
+.dropdown-menu-right {
+    left: auto; // Reset the default from `.dropdown-menu`
+    right: 0;
+}
+
+// With v3, we enabled auto-flipping if you have a dropdown within a right
+// aligned nav component. To enable the undoing of that, we provide an override
+// to restore the default dropdown menu alignment.
+//
+// This is only for left-aligning a dropdown menu within a `.navbar-right` or
+// `.pull-right` nav component.
+.dropdown-menu-left {
+    left: 0;
+    right: auto;
+}
+
+// Backdrop to catch body clicks on mobile, etc.
+.dropdown-backdrop {
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    top: 0;
+    z-index: 10;
+}
+
+// Right aligned dropdowns
+.pull-right > .dropdown-menu {
+    right: 0;
+    left: auto;
+}
+
+// Allow for dropdowns to go bottom up (aka, dropup-menu)
+//
+// Just add .dropup after the standard .dropdown class and you're set, bro.
+// TODO: abstract this so that the navbar fixed styles are not placed here?
+.dropup,
+.navbar-fixed-bottom .dropdown {
+    // Different positioning for bottom up menu
+    .dropdown-menu {
+        top: auto;
+        bottom: 100%;
+        margin-bottom: 2px;
+    }
+}
+
+body {
+    &.index {
+        .index_film {
+            .embed-responsive-item,
+            iframe,
+            embed,
+            object,
+            video {
+                width: 427px;
+                height: 240px;
+            }
+        }
+    }
+}
+
+.upload {
+    .film_preview {
+        .embed-responsive-item,
+        iframe,
+        embed,
+        object,
+        video {
+            width: 450px;
+            height: 252px;
+        }
+    }
+}
+
+.film {
+    .film-inner {
+        margin: 0;
+    }
+}
+
+@media screen and (min-width:640px) {
+    .navbar {
+        .event_menu {
+            .mobile-menu {
+                display: none;
+            }
+        }
+    }
+    .section-menu {
+        display: inline-block;
+    }
+}
+
+@media screen and (max-width:640px) {
+    body {
+        background: url("../img/m-bg-index.png") 0 0;
+        &.index {
+            background: url("../img/m-bg-index.png") 0 0;
+            .index_film {
+                position: relative;
+                display: block;
+                height: 0;
+                padding: 0;
+                overflow: hidden;
+                width: 100%;
+                padding-bottom: 56.25%;
+                background: transparent;
+                .embed-responsive-item,
+                iframe,
+                embed,
+                object,
+                video {
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    bottom: 0;
+                    height: 100%;
+                    width: 100%;
+                    border: 8px solid #fff;
+                    border-radius: 5px;
+                    margin: 0;
+                }
+            }
+            h1 {
+                background: url("../img/m-h1_index.png") center 0 no-repeat;
+                background-size: cover;
+                margin: 0;
+                &:before {
+                    content: "";
+                    display: block;
+                    padding-top: 30.31%;
+                }
+                >img {
+                    display: none;
+                }
+            }
+            .index_desc {
+                position: initial;
+                margin: 20px 0 10px;
+            }
+            .btn_index_upload {
+                margin: 10px 10px 0;
+            }
+        }
+    }
+    * {
+        box-sizing: border-box;
+    }
+    img {
+        max-width: 100%;
+    }
+    // The dropdown menu
+    .dropdown-menu {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        z-index: 15;
+        display: none; // none by default, but block on "open" of the menu
+        float: left;
+        min-width: 160px;
+        padding: 5px 0;
+        margin: 2px 0 0; // override default ul
+        list-style: none;
+        text-align: left;
+        background: #fff;
+        box-shadow: rgba(0, 0, 0, .1) 0 5px 10px;
+        // Ensures proper alignment if parent has it changed (e.g., modal footer)
+        //background-color: @dropdown-bg;
+        //border: 1px solid @dropdown-fallback-border; // IE8 fallback
+        //border: 1px solid @dropdown-border;
+        //border-radius: @border-radius-base;
+        //.box-shadow(0 6px 12px rgba(0, 0, 0, .175));
+        //background-clip: padding-box;
+        // Aligns the dropdown menu to right
+        //
+        // Deprecated as of 3.1.0 in favor of `.dropdown-menu-[dir]`
+        &.pull-right {
+            right: 0;
+            left: auto;
+        }
+        // Dividers (basically an hr) within the dropdown
+        /*.divider {
+            .nav-divider(@dropdown-divider-bg);
+        }*/
+        // Links within the dropdown menu
+        > li > a {
+            display: block;
+            padding: 3px 20px;
+            clear: both;
+            font-weight: normal;
+            //line-height: @line-height-base;
+            //color: @dropdown-link-color;
+            white-space: nowrap; // prevent links from randomly breaking onto new lines
+        }
+    }
+    .navbar {
+        height: auto;
+        .event_menu {
+            width: 100%;
+            height: auto;
+            text-align: right;
+            padding-top: 5px;
+            >a {
+                height: 44px;
+            }
+            a.event_menu00 {
+                width: auto;
+                float: left;
+                img {
+                    height: 100%;
+                }
+            }
+            .mobile-menu {
+                width: 44px;
+                margin-right: 10px;
+                background: url("../img/m-btn-menu.png") -44px 0 no-repeat;
+                background-size: 132px 44px;
+                transition: none;
+            }
+            &.open {
+                .mobile-menu {
+                    background: url("../img/m-btn-menu.png") -88px 0 no-repeat;
+                    background-size: 132px 44px;
+                }
+            }
+        }
+        .event_menu05,
+        .event_menu05_active {
+            background-position: -642px 0;
+        }
+    }
+    .btn_fb {
+        position: fixed;
+        z-index: 110;
+        top: 5px;
+        right: 60px;
+        width: 44px;
+        height: 44px;
+        background: url("../img/m-btn-menu.png") 0 0 no-repeat;
+        background-size: 132px 44px;
+        >img {
+            display: none;
+        }
+    }
+    .container {
+        width: 100%;
+        padding-left: 10px;
+        padding-right: 10px;
+        .spokesman {
+            display: block;
+        }
+    }
+    .spokesman {
+        background: url("../img/m-spokesman.png") center 0 no-repeat;
+        background-size: cover;
+        &:before {
+            content: "";
+            display: block;
+            padding-top: 123.125%;
+        }
+        >img {
+            display: none;
+        }
+    }
+    .header {
+        width: 100%;
+        margin-bottom: -10px;
+        h1 {
+            background: url("../img/m-h1_index.png") center 0 no-repeat;
+            background-size: cover;
+            margin: 0;
+            &:before {
+                content: "";
+                display: block;
+                padding-top: 30.31%;
+            }
+            >img {
+                display: none;
+            }
+        }
+        h2 {
+            &.h2_event {
+                background: url("../img/m-event-h2.png") center 0 no-repeat;
+            }
+            &.h2_upload {
+                background: url("../img/m-upload-h2.png") center 0 no-repeat;
+            }
+            &.h2_namelist {
+                background: url("../img/m-namelist-h2.png") center 0 no-repeat;
+            }
+            &.h2_vote {
+                background: url("../img/m-vote-h2.png") center 0 no-repeat;
+            }
+            &.h2_product {
+                background: url("../img/m-product-h2.png") center 0 no-repeat;
+            }
+            &.h2_event,
+            &.h2_upload,
+            &.h2_namelist,
+            &.h2_vote,
+            &.h2_product {
+                background-size: cover;
+                margin: 0;
+                width: 100%;
+                position: relative;
+                left: 0;
+                top: -20px;
+                &:before {
+                    content: "";
+                    display: block;
+                    padding-top: 13.43%;
+                }
+                >img {
+                    display: none;
+                }
+            }
+        }
+    }
+    .event {
+        width: 100%;
+        background: url("../img/m-event-01.png") center 0 no-repeat;
+        background-size: cover;
+        margin: -20px 0 0;
+        &:before {
+            content: "";
+            display: block;
+            padding-top: 881.56%;
+        }
+        >img {
+            display: none;
+        }
+    }
+    .upload {
+        background: #efece4;
+        margin: 0;
+        padding: 15px;
+        width: 100%;
+        height: auto;
+        border-radius: 10px;
+        .option {
+            width: 100%;
+            margin: 0
+        }
+        .film_preview {
+            position: relative;
+            display: block;
+            height: 0;
+            padding: 0;
+            overflow: hidden;
+            width: 100%;
+            margin-bottom: 20px;
+            padding-bottom: 56.25%;
+            background: transparent;
+            .embed-responsive-item,
+            iframe,
+            embed,
+            object,
+            video {
+                position: absolute;
+                top: 0;
+                left: 0;
+                bottom: 0;
+                height: 100%;
+                width: 100%;
+                border: 8px solid #fff;
+                border-radius: 5px;
+                margin: 0;
+            }
+        }
+    }
+    .search {
+        width: 100%;
+        height: auto;
+        background: #efece4;
+        border-radius: 10px;
+        margin: 0 0 15px;
+        h3 {
+            margin: 0;
+            text-align: left;
+            display: block;
+            line-height: 1;
+            padding-left: 8px;
+            margin-bottom: -10px;
+            >img {
+                width: 100px;
+            }
+        }
+        input {
+            width: 55%;
+            margin: 0;
+        }
+        >a {
+            margin: 0 0 0 10px;
+        }
+    }
+    .vote_list {
+        width: 47%;
+        height: auto;
+        margin: 0 10px 10px 0;
+        background: #fff;
+        border-radius: 10px;
+        border: 1px solid #f382a0;
+        padding: 10px;
+        &:nth-of-type(even) {
+            margin-right: 0;
+        }
+        .img_vote_list {
+            >img {
+                width: initial;
+                height: auto;
+            }
+        }
+        >div {
+            display: block;
+            margin-bottom: 5px;
+        }
+        .percentage_bg {
+            width: 100%;
+            height: 10px;
+        }
+        .percentage {
+            height: 10px;
+            display: block;
+        }
+        .percentage_number {
+            display: none;
+        }
+        >a {
+            &:nth-of-type(2),
+            &:nth-of-type(3) {
+                width: 47%;
+                margin: 0;
+            }
+        }
+    }
+    .film {
+        width: 85%;
+        background: #fff;
+        border-radius: 10px;
+        border: 1px solid #f382a0;
+        padding: 10px;
+        height: auto;
+        text-align: center;
+        .film-inner {
+            position: relative;
+            height: 0;
+            padding: 0;
+            width: 100%;
+            padding-bottom: 56.25%;
+            .embed-responsive-item,
+            iframe,
+            embed,
+            object,
+            video {
+                position: absolute;
+                top: 0;
+                left: 0;
+                bottom: 0;
+                height: 100%;
+                width: 100%;
+                margin: 0;
+            }
+        }
+        >a {
+            margin: 0;
+            width: 40%;
+            &:last-of-type {
+                margin-left: 30px;
+            }
+        }
+        .prevfilm {
+            width: auto;
+            left: -40px;
+            width: 15%;
+            top: 100px;
+        }
+        .nextfilm {
+            width: auto;
+            right: -40px;
+            width: 15%;
+            top: 100px;
+        }
+        >div {
+            display: block;
+            margin-bottom: 5px;
+        }
+        .percentage_title {
+            text-align: left;
+        }
+        .percentage_bg {
+            width: 70%;
+            height: 10px;
+        }
+        .percentage {
+            height: 10px;
+            display: block;
+        }
+    }
+    footer {
+        display: none;
+    }
+    .modal {
+        width: 100%;
+        left: 0;
+        margin: 0;
+    }
+    .modal-header {
+        height: auto;
+        padding: 0;
+        .clearfix();
+        .close {
+            margin: 0;
+        }
+    }
+    .modal-body {
+        padding: 0 10px;
+        width: 100%;
+    }
+    .lightbox_fillin {
+        p {
+            text-indent: 0;
+            padding: 0;
+        }
+    }
+    #lightbox_complete .modal-footer {
+        margin: 0;
+    }
+}
+
+@media only screen and (-webkit-min-device-pixel-ratio: 2) and (max-width:640px) {
+    body {
+        background-image: url("../img/m-bg-index@2x.png");
+        &.index {
+            background-image: url("../img/m-bg-index@2x.png");
+            h1 {
+                background-image: url("../img/m-h1_index@2x.png");
+            }
+        }
+    }
+    .navbar {
+        .event_menu {
+            .mobile-menu {
+                background-image: url("../img/m-btn-menu@2x.png");
+            }
+            &.open {
+                .mobile-menu {
+                    background-image: url("../img/m-btn-menu@2x.png");
+                }
+            }
+        }
+        .event_menu01,
+        .event_menu02,
+        .event_menu03,
+        .event_menu04,
+        .event_menu05 {
+            background-image: url("../img/event_menu@2x.png");
+            background-size: 800px 70px;
+            &:hover {
+                background-image: url("../img/event_menu@2x.png");
+                background-size: 800px 70px;
+            }
+        }
+        .event_menu01_active,
+        .event_menu02_active,
+        .event_menu03_active,
+        .event_menu04_active,
+        .event_menu05_active {
+            background-image: url("../img/event_menu_active@2x.png");
+            background-size: 800px 70px;
+            &:hover {
+                background-image: url("../img/event_menu_active@2x.png");
+                background-size: 800px 70px;
+            }
+        }
+    }
+    .btn_fb {
+        background-image: url("../img/m-btn-menu@2x.png");
+    }
+    .spokesman {
+        background-image: url("../img/m-spokesman@2x.png");
+    }
+    .header {
+        h1 {
+            background-image: url("../img/m-h1_index@2x.png");
+        }
+        h2.h2_event {
+            background-image: url("../img/m-event-h2@2x.png");
+        }
+        h2.h2_upload {
+            background-image: url("../img/m-upload-h2@2x.png");
+        }
+        h2.h2_namelist {
+            background-image: url("../img/m-namelist-h2@2x.png");
+        }
+        h2.h2_vote {
+            background-image: url("../img/m-vote-h2@2x.png");
+        }
+        h2.h2_product {
+            background-image: url("../img/m-product-h2@2x.png");
+        }
+    }
+    .event {
+        background-image: url("../img/m-event-01@2x.png");
+    }
+}

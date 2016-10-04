@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>嬌生陪寶貝探索世界，分享幸福第一次</title>
+    <link rel="stylesheet" href="public/css/main.css">
+    <link rel="stylesheet" href="public/css/mobile-main.css">
+</head>
+
+<body>
+    <!-- 選單 -->
+    <div class="navbar">
+        <div class="event_menu dropdown">
+            <a href="http://www.johnsonsbaby.com.tw/" target="_blank" class="event_menu00"><img src="public/img/logo.png" alt="嬌生"></a>
+            <a id="dLabel" class="mobile-menu" data-target="#" href="#" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"></a>
+            <div class="dropdown-menu section-menu" aria-labelledby="dLabel">
+                <a title="影片上傳" href="upload.html" target="_self" class="event_menu01"></a>
+                <a title="產品介紹" href="product.html" target="_self" class="event_menu02"></a>
+                <a title="我要投票" href="vote.html" target="_self" class="event_menu03_active"></a>
+                <a title="活動辦法" href="event.html" target="_self" class="event_menu04"></a>
+                <a title="得獎名單" href="namelist.html" target="_self" class="event_menu05"></a>
+            </div>
+        </div>
+    </div>
+    <!-- 內容 -->
+    <div class="container">
+        <a href="#" class="btn_fb"><img src="public/img/btn_fb.png" alt="FB分享"></a>
+        <!-- 刊頭 -->
+        <div class="header">
+            <h1><img src="public/img/header.png" alt="嬌生陪寶貝探索世界，分享幸福第一次"></h1>
+            <h2 class="h2_vote"><img src="public/img/h2_vote.png" alt="我要投票"></h2>
+        </div>
+        <!-- 詳細內容 -->
+        <div class="film">
+            <a href="#" class="prevfilm"><img src="public/img/btn_prevpage.png" alt="上一頁"></a>
+            <a href="#" class="nextfilm"><img src="public/img/btn_nextpage.png" alt="下一頁"></a>
+            <div class="film-inner">
+                <iframe src="https://www.youtube.com/embed/BPXk8Qx2hIg?rel=0&amp;showinfo=0" frameborder="0" allowfullscreen></iframe>
+            </div>            
+            <p class="nickname">晴晴寶貝</p>
+            <div>
+                <p class="percentage_title">得票率</p>
+                <!-- 1%寬度為4px-->
+                <div class="percentage_bg">
+                    <div class="percentage" style="width:24px"></div>
+                </div>
+                <p class="percentage_number">100%</p>
+            </div>
+            <a href="#" data-toggle="modal" data-target="#formModal"><img src="public/img/btn_film_vote.png" alt="投票"></a>
+            <a href="#"><img src="public/img/btn_film_fb.png" alt="FB分享"></a>
+        </div>
+    </div>
+    <!-- 頁尾 -->
+    <footer>本活動網站建議使用Safari或Chrome、IE9以上之瀏覽器版本，若無法開啟請更新您的瀏覽器版本，以達最佳瀏覽體驗。</footer>
+    <!-- 填資料 -->
+    <div class="modal fade" id="formModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true"><img src="public/img/btn_close.png"></span></button>
+                </div>
+                <div class="modal-body lightbox_fillin">
+                    <h3>請填寫正確個人資料，以利後續得獎聯絡</h3>
+                    <div class="option">
+                        <h4>收件人姓名：</h4>
+                        <input type="text" placeholder="請填寫中文姓名" />
+                    </div>
+                    <div class="option">
+                        <h4>聯絡電話：</h4>
+                        <input type="text" placeholder="範例：0912345678" />
+                    </div>
+                    <div class="option">
+                        <h4>E-MAIL：</h4>
+                        <input type="text" />
+                    </div>
+                    <div class="option">
+                        <h4>地址：</h4>
+                        <select id="city" name="city">
+                            <option>縣市</option>
+                            <option value="1">台北市</option>
+                            <option value="2">基隆市</option>
+                            <option value="3">新北市</option>
+                            <option value="4">宜蘭縣</option>
+                            <option value="5">新竹市</option>
+                            <option value="6">新竹縣</option>
+                            <option value="7">桃園縣</option>
+                            <option value="8">苗栗縣</option>
+                            <option value="9">台中市</option>
+                            <option value="11">彰化縣</option>
+                            <option value="12">南投縣</option>
+                            <option value="13">雲林縣</option>
+                            <option value="14">嘉義市</option>
+                            <option value="15">嘉義縣</option>
+                            <option value="16">台南市</option>
+                            <option value="18">高雄市</option>
+                            <option value="20">屏東縣</option>
+                            <option value="21">花蓮縣</option>
+                            <option value="22">台東縣</option>
+                            <option value="23">澎湖縣</option>
+                            <option value="24">金門縣</option>
+                            <option value="25">連江縣</option>
+                        </select>
+                        <select id="area" name="area">
+                            <option>鄉鎮</option>
+                        </select>
+                        <input type="text" name="address" id="address" placeholder="詳細地址">
+                    </div>
+                    <p>分享至FB時，請記得加入 #嬌生呵護寶貝探索世界 字樣!!</p>
+                    <div class="modal-footer">
+                        <a href="#"><img src="public/img/btn_send.png" alt="送出"></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="public/js/jquery.min.js"></script>
+    <script src="public/js/affix.js"></script>
+    <script src="public/js/dropdown.js"></script>
+</body>
+
+</html>
